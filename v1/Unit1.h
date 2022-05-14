@@ -30,6 +30,8 @@ __published:	// IDE-managed Components
 	TButton *Button16;
 	TButton *Button17;
 	TButton *Button18;
+	TButton *Button19;
+	TButton *Button20;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Button10Click(TObject *Sender);
 	void __fastcall Button13Click(TObject *Sender);
@@ -39,6 +41,7 @@ __published:	// IDE-managed Components
 	void __fastcall Button12Click(TObject *Sender);
 	void __fastcall Button17Click(TObject *Sender);
 	void __fastcall Button18Click(TObject *Sender);
+	void __fastcall Button19Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);

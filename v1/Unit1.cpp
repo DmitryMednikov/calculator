@@ -79,17 +79,17 @@ void __fastcall TForm1::Button12Click(TObject *Sender)
     number2 = Label1->Caption;
 	if (number1 != "" & number2 != "" & znak != "") {
 		if (znak == "+") {
-			Label1->Caption = StrToInt(number1) + StrToInt(number2);
+			Label1->Caption = FloatToStr(StrToFloat(number1) + StrToFloat(number2));
 		}
 		if (znak == "-") {
-			Label1->Caption = StrToInt(number1) - StrToInt(number2);
+			Label1->Caption = FloatToStr(StrToFloat(number1) - StrToFloat(number2));
 		}
 		if (znak == "*") {
-			Label1->Caption = StrToInt(number1) * StrToInt(number2);
+			Label1->Caption = FloatToStr(StrToFloat(number1) * StrToFloat(number2));
 		}
 		if (znak == "/") {
 			if (number2 != "0") {
-				Label1->Caption = StrToInt(number1) / StrToInt(number2);
+				Label1->Caption = FloatToStr(StrToFloat(number1) / StrToFloat(number2));
 			}
 			else Label1->Caption = "Нельзя делить на 0";
 		}
@@ -110,22 +110,34 @@ void __fastcall TForm1::Button12Click(TObject *Sender)
 void __fastcall TForm1::Button17Click(TObject *Sender)
 {
     number1 = Label1->Caption;
-	number1 = StrToInt(number1) * StrToInt(number1) * StrToInt(number1);
-	Label1->Caption = number1;
+	if (number1 != "") {
+        number1 = FloatToStr(StrToFloat(number1) * StrToFloat(number1) * StrToFloat(number1));
+		Label1->Caption = number1;
+	}
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::Button18Click(TObject *Sender)
 {
     UnicodeString str = Label1->Caption;
-	if (str.Pos("-") == 0) {
-		str.Insert("-",1);
-		Label1->Caption = str;
+	if (str != "") {
+        if (str.Pos("-") == 0) {
+			str.Insert("-",1);
+			Label1->Caption = str;
+		}
+		else if (str.Pos("-") == 1) {
+			str.Delete(1,1);
+			Label1->Caption = str;
+		}
 	}
-	else if (str.Pos("-") == 1) {
-        str.Delete(1,1);
-		Label1->Caption = str;
-	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button19Click(TObject *Sender)
+{
+    UnicodeString str = Label1->Caption;
+	str.Delete(Label1->Caption.Length(),1);
+    Label1->Caption = str;
 }
 //---------------------------------------------------------------------------
 
